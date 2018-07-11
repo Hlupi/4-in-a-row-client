@@ -20,11 +20,41 @@ class GameDetails extends PureComponent {
   joinGame = () => this.props.joinGame(this.props.game.id)
 
   makeMove = (toRow, toCell) => {
+    // console.log(toRow, toCell)
     const {game, updateGame} = this.props
+    // console.log(game.board)
+    let newRow = toRow
+    const board = game.board.map((row, rowIndex) => row.map((cell, cellIndex) => {
+      if (rowIndex === toRow && cellIndex === toCell) {
+        // console.log('I am a new row', newRow)
+        // console.log('I am a new row+1', newRow+1)
+        // console.log('I am newcell in a newRow on a board', game.board[newRow][toCell])
+        // // console.log('I am the cell below the changed cell', game.board[newRow+1][toCell])
+        // console.log(game.board[newRow+1] !== undefined && game.board[newRow+1][toCell] !== null && newRow+1 < 7);
 
-    const board = game.board.map(
-      (row, rowIndex) => row.map((cell, cellIndex) => {
-        if (rowIndex === toRow && cellIndex === toCell) return game.turn
+        const nextRowExists = game.board[newRow+1] !== undefined
+        // console.log(nextRowExists, 'next row exists');
+        let cellBelowNotEmpty;
+        if (nextRowExists) {
+          cellBelowNotEmpty = game.board[newRow+1][toCell] !== null
+        }
+        // console.log(cellBelowNotEmpty);
+        // console.log(!nextRowExists || cellBelowNotEmpty, 'end turn?')
+        
+        // const isBottomRow = newRow+1 < 7
+        
+        if (!nextRowExists || cellBelowNotEmpty) {
+
+        // if (game.board[1+newRow][toCell] !== null) {
+          // console.log('hi?');
+          
+          return game.turn
+        }
+        else this.makeMove(newRow+1, toCell)
+      }
+        // if (rowIndex === newRow && cellIndex === toCell && newRow + 1 !== null) return game.turn
+        // if (rowIndex === newRow && cellIndex ==== toCell && newRow + 1 === null) return makeMove(newRow+1, toCell)
+        // originalCode: if (rowIndex === toRow && cellIndex === toCell) return game.turn
         else return cell
       })
     )
