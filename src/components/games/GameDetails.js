@@ -69,12 +69,12 @@ class GameDetails extends PureComponent {
     return (<Paper className="outer-paper">
       <h1>Game #{game.id}</h1>
 
-      <p>Status: {game.status}</p>
+      <p>Status: <b>{game.status}</b></p>
 
       {
         game.status === 'started' &&
         player && player.symbol === game.turn &&
-        <div>It's your turn!</div>
+        <div className={`turn-${player.symbol}`}>It's your turn! You are </div>
       }
 
       {
@@ -89,11 +89,12 @@ class GameDetails extends PureComponent {
       }
 
       <hr />
-
+      <div className="board">
       {
         game.status !== 'pending' &&
-        <Board board={game.board} makeMove={this.makeMove} />
+        <Board board={game.board} makeMove={this.makeMove}/>
       }
+      </div>
     </Paper>)
   }
 }
