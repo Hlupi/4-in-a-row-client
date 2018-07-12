@@ -4,11 +4,11 @@ import './Board.css'
 const renderCel = (makeMove, rowIndex, cellIndex, symbol, hasTurn) => {
   return (
     <button
-      className="board-tile"
-      disabled={hasTurn}
-      onClick={() => makeMove(rowIndex, cellIndex)}
-      key={`${rowIndex}-${cellIndex}`}
-    >{symbol || '-'}</button>
+    className="board-tile"
+    disabled={hasTurn}
+    onClick={() => makeMove(rowIndex, cellIndex)}
+    key={`${rowIndex}-${cellIndex}`}
+  >{symbol || '-'}</button>
   )
 }
 
