@@ -21,11 +21,28 @@ class GameDetails extends PureComponent {
 
   makeMove = (toRow, toCell) => {
     const {game, updateGame} = this.props
-
-    const board = game.board.map(
-      (row, rowIndex) => row.map((cell, cellIndex) => {
-        if (rowIndex === toRow && cellIndex === toCell) return game.turn
+    let newRow = toRow
+    // this function takes the coordinates of the move made by the current player and 
+    // returns if it's a valid move it returns a new board and passes the turn
+    const board = game.board.map((row, rowIndex) => row.map((cell, cellIndex) => {
+      // maps over the current board and current rows
+      if (rowIndex === toRow && cellIndex === toCell) {
+        // checks if the clicked cell is empty
+        const nextRowExists = game.board[newRow+1] !== undefined
+        let cellBelowNotEmpty;
+        if (nextRowExists) {
+          cellBelowNotEmpty = game.board[newRow+1][toCell] !== null
+        }
+        if (!nextRowExists || cellBelowNotEmpty) {
+          // checks if the row beneath is full, if so returns the value and gameturn
+          return game.turn
+        }
+        else this.makeMove(newRow+1, toCell)
+          // if the row beneath is empty, this returns the function with an incremented row to 
+          // imitate gravity
+      }
         else return cell
+        // if the clicked cell is full already, it just returns the cell
       })
     )
     updateGame(game.id, board)
