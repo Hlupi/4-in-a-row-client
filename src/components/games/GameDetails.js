@@ -20,42 +20,29 @@ class GameDetails extends PureComponent {
   joinGame = () => this.props.joinGame(this.props.game.id)
 
   makeMove = (toRow, toCell) => {
-    // console.log(toRow, toCell)
     const {game, updateGame} = this.props
-    // console.log(game.board)
     let newRow = toRow
+    // this function takes the coordinates of the move made by the current player and 
+    // returns if it's a valid move it returns a new board and passes the turn
     const board = game.board.map((row, rowIndex) => row.map((cell, cellIndex) => {
+      // maps over the current board and current rows
       if (rowIndex === toRow && cellIndex === toCell) {
-        // console.log('I am a new row', newRow)
-        // console.log('I am a new row+1', newRow+1)
-        // console.log('I am newcell in a newRow on a board', game.board[newRow][toCell])
-        // // console.log('I am the cell below the changed cell', game.board[newRow+1][toCell])
-        // console.log(game.board[newRow+1] !== undefined && game.board[newRow+1][toCell] !== null && newRow+1 < 7);
-
+        // checks if the clicked cell is empty
         const nextRowExists = game.board[newRow+1] !== undefined
-        // console.log(nextRowExists, 'next row exists');
         let cellBelowNotEmpty;
         if (nextRowExists) {
           cellBelowNotEmpty = game.board[newRow+1][toCell] !== null
         }
-        // console.log(cellBelowNotEmpty);
-        // console.log(!nextRowExists || cellBelowNotEmpty, 'end turn?')
-        
-        // const isBottomRow = newRow+1 < 7
-        
         if (!nextRowExists || cellBelowNotEmpty) {
-
-        // if (game.board[1+newRow][toCell] !== null) {
-          // console.log('hi?');
-          
+          // checks if the row beneath is full, if so returns the value and gameturn
           return game.turn
         }
         else this.makeMove(newRow+1, toCell)
+          // if the row beneath is empty, this returns the function with an incremented row to 
+          // imitate gravity
       }
-        // if (rowIndex === newRow && cellIndex === toCell && newRow + 1 !== null) return game.turn
-        // if (rowIndex === newRow && cellIndex ==== toCell && newRow + 1 === null) return makeMove(newRow+1, toCell)
-        // originalCode: if (rowIndex === toRow && cellIndex === toCell) return game.turn
         else return cell
+        // if the clicked cell is full already, it just returns the cell
       })
     )
     updateGame(game.id, board)
