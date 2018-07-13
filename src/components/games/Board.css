@@ -17,12 +17,121 @@
 }
 
 .symbol-x{
-  background-color: #C191A1;
+  background-color: #FCB0B3;
+  animation-name: bounceIn;
+  animation-duration: 1s;
 }
 .symbol-o{
   background-color: #397367;
+  animation-name: bounceIn;
+  animation-duration: 1s;
 }
 
 button:focus {
   outline: none;
 }
+
+@keyframes bounceIn {
+  from,
+  20%,
+  40%,
+  60%,
+  80%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+
+/* OTHER STUFF */
+
+/* .board-tile {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: white;
+  margin: 3px;
+}
+
+.symbol-x {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: #C191A1;
+  margin: 3px;
+  animation-name: bounceIn;
+  animation-duration: 1s;
+}
+
+.symbol-o {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: #397367;
+  margin: 3px;
+  animation-name: bounceIn;
+  animation-duration: 1s;
+}
+
+button:focus {
+  outline: none;
+} */
+
+/* @keyframes tada {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%,
+  20% {
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%,
+  60%,
+  80% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.tada {
+  animation-name: tada;
+} */

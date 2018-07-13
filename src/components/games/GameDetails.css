@@ -1,4 +1,41 @@
+h1{
+  color: #1C1D21;
+}
+
 .outer-paper {
+  margin-top: 20px;
+  margin: auto;
+  padding: 20px;
+  width: 80%;
+  background-color: #6E8898;
+  text-align: center;
+}
+.board {
+  position: relative;
+  height: 400px;
+  width: 400px;
+  padding-left: 5px;
+  padding-top: 5px;
+  background-color: #6E8898;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.turn-x:after {
+  content: ' PINK';
+  text-shadow: 2px 1px 2px #C191A1;
+  color: #C191A1;
+}
+
+.turn-o:after {
+  content: ' GREEN';
+  text-shadow: 2px 1px 2px #397367;
+  color: #397367;  
+}
+
+/* OTHER STUFF */
+
+/* .outer-paper {
   margin-top: 20px;
   margin: auto;
   padding: 20px;
@@ -21,4 +58,5 @@ h1{
   content: ' GREEN';
   text-shadow: 2px 1px 2px #397367;
   color: #397367;  
-}
+}  */
+
