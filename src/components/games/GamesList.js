@@ -34,11 +34,12 @@ class GamesList extends PureComponent {
           Game #{game.id}
         </Typography>
         <Typography color="textSecondary">
-          Status: {game.status}
+          Status: <b>{game.status}</b>
         </Typography>
       </CardContent>
-      <CardActions>
+      <CardActions className="game-actions">
         <Button
+        className="watch-game"
           size="small"
           onClick={() => history.push(`/games/${game.id}`)}
         >
@@ -59,7 +60,7 @@ class GamesList extends PureComponent {
 
     return (<Paper className="outer-paper">
       <Button
-        color="primary"
+
         variant="raised"
         onClick={createGame}
         className="create-game"
