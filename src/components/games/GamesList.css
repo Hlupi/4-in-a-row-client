@@ -5,11 +5,24 @@ h2 {
 
 .game-card {
   margin: 10px 10px 10px 0px;
+  text-align: center;
 }
 
 .create-game {
   margin-top: 10px !important;
+  background-color: #7C90A0 !important;
+  color: white !important;
 }
+
+.game-actions {
+  justify-content: center;
+}
+
+.watch-game {
+  background-color: #879daf !important;
+  color: white !important;
+}
+
 
 .outer-paper {
   margin: auto;

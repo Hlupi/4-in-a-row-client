@@ -2,5 +2,23 @@
   margin-top: 20px;
   margin: auto;
   padding: 20px;
-  width: 60%;
+  width: 80%;
+  text-align: center;
+}
+
+h1{
+  color: #1C1D21;
+}
+
+.turn-x:after {
+  content: ' PINK';
+  text-shadow: 2px 1px 2px #C191A1;
+  color: #C191A1;
+
+}
+
+.turn-o:after{
+  content: ' GREEN';
+  text-shadow: 2px 1px 2px #397367;
+  color: #397367;  
 }
