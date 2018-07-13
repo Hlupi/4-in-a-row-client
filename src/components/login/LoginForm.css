@@ -1,8 +1,43 @@
-/* body {
+.login-form label {
+  display: block;
   text-align: center;
-} */
+}
+.login-form {
+  text-align: center;
+}
 
-.login-form label { 
-   display: block;
-  /* text-align: center; */
+input[type=email], select {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-left: 15px;
+}
+input[type=password], select {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-left: 15px;
+}
+.btn {
+  width: 40%;
+  padding: 8px 20px;
+  margin: 8px 0;
+  margin-left: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.btn[type=submit]:hover {
+  background-color: #879daf;
+  color: white;
 }
