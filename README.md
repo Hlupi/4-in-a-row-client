@@ -4,4 +4,4 @@ This is the frontend for the game starter in which you can play 4 in a Row with 
 
 The backend (server) of this project must be running for the app to function correctly.
 
-![example](https://cd.sseu.re/tictactoe-low.gif)
+![example](https://media.giphy.com/media/Kyxu98OghO17ymgjBV/giphy.gif)
